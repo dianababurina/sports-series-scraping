@@ -1,0 +1,23 @@
+{
+  "name": "sport-event-get",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "node --no-warnings getSportsSeries.js",
+    "start:parsing": "node --no-warnings saveSportsSeries.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "config": "^3.3.3",
+    "n-readlines": "^1.0.1",
+    "node-cron": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
+}

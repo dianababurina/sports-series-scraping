@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "prefer-destructuring": ["error", {"object": false, "array": false}]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/test/**"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

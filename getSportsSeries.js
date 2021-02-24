@@ -1,31 +1,28 @@
-const http = require('http');
+const Koa = require('koa');
+const Router = require('koa-router');
 const LineByLine = require('n-readlines');
 const { getHistoryFile } = require('./utils');
 
+const app = new Koa();
+const router = new Router();
 const liner = new LineByLine(getHistoryFile());
 
 const readSportsSeries = () => {
   const line = liner.next();
-  return (line)
-    ? JSON.parse(line.toString())
-    : {};
+  return (line) ? JSON.parse(line.toString()) : {};
 };
 
-const createSportsSeriesRoute = (request, response) => {
-  const { method, url } = request;
+router.get('/sports-series', (ctx) => {
+  ctx.body = readSportsSeries();
+  return ctx;
+});
 
-  response.setHeader('Content-Type', 'application/json');
+router.get('/match-fixtures/:id', (ctx) => {
+  ctx.body = ctx.params.id;
+});
 
-  if (method === 'GET' && url === '/sports-series') {
-    const sportsSeries = readSportsSeries();
-    response.write(JSON.stringify(sportsSeries));
-  } else {
-    response.write(JSON.stringify({ error: 'Request method and/or URL are not supported' }));
-  }
-  response.end();
-};
-
-http.createServer((request, response) => {
-  createSportsSeriesRoute(request, response);
-}).listen(5000);
+app
+  .use(router.routes())
+  .use(router.allowedMethods())
+  .listen(5000);
 

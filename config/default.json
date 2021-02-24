@@ -1,5 +1,5 @@
 {
-  "fileNameSuffix": "sports-series-history.txt",
   "fetcherURL": "https://au-metro-fetcher.dev.aumetros.djservices.io",
-  "sport": "test"
+  "sport": "test",
+  "matchId": "TEST2020-210903"
 }

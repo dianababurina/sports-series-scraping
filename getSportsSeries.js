@@ -1,24 +1,20 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-const LineByLine = require('n-readlines');
-const { getHistoryFile } = require('./utils');
+const { readFromHistory, createLiner } = require('./utils');
+const { HISTORY_TYPES } = require('./constants');
 
 const app = new Koa();
 const router = new Router();
-const liner = new LineByLine(getHistoryFile());
 
-const readSportsSeries = () => {
-  const line = liner.next();
-  return (line) ? JSON.parse(line.toString()) : {};
-};
+const sportsSeriesLiner = createLiner(HISTORY_TYPES.SPORTS_SERIES);
+const matchFixtureLiner = createLiner(HISTORY_TYPES.MATCH_FIXTURE);
 
 router.get('/sports-series', (ctx) => {
-  ctx.body = readSportsSeries();
-  return ctx;
+  ctx.body = readFromHistory(sportsSeriesLiner);
 });
 
 router.get('/match-fixtures/:id', (ctx) => {
-  ctx.body = ctx.params.id;
+  ctx.body = readFromHistory(matchFixtureLiner);
 });
 
 app

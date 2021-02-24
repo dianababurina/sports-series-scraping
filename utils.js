@@ -1,5 +1,7 @@
 const config = require('config');
 const path = require('path');
+const fs = require('fs');
+const os = require('os');
 const LineByLine = require('n-readlines');
 
 const HISTORY_FILENAME = {
@@ -19,8 +21,14 @@ const readFromHistory = (liner) => {
   return (line) ? JSON.parse(line.toString()) : {};
 };
 
+const saveToHistory = (data, type) => {
+  const file = getHistoryFile(type);
+  return fs.promises.appendFile(file, `${JSON.stringify(data)}${os.EOL}`);
+};
+
 module.exports = {
   getHistoryFile,
   createLiner,
   readFromHistory,
+  saveToHistory,
 };

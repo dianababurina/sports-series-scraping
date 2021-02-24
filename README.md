@@ -54,18 +54,18 @@ First of all please make sure that you have proper values defined in config (esp
 4. Run command `npm run start:server`
 
 On Fetcher:
-<br>
-5. Checkout `feat/simulate-live-updates`
-6. Start Fetcher locally
+
+1. Checkout `feat/simulate-live-updates`
+2. Start Fetcher locally
 
 On Transformer:
-<br>
-7. Make sure you are pointing to LOCAL Fetcher
-8. Start Transformer locally
+
+1. Make sure you are pointing to LOCAL Fetcher
+2. Start Transformer locally
 
 In UI:
-<br>
-10. If you are using default configuration with snapshots pushed to this repo, go to `Menu -> Sport -> Cricket`. Scroll down to cricket `SportEvent` frames.
-11. Select `IND v ENG` in dropdown. `INV v ENG` match that starts on 24th Feb is the one that will have LIVE updates.
-12. Wait for some time (~ 2 mins) until the match becomes LIVE. Unfortutately snapshots were made when the match just started, so scores are 0. So in the future we want to update scores, so that the effect of updating is more visible.
+
+1. If you are using default configuration with snapshots pushed to this repo, go to `Menu -> Sport -> Cricket`. Scroll down to cricket `SportEvent` frames.
+2. Select `IND v ENG` in dropdown. `INV v ENG` match that starts on 24th Feb is the one that will have LIVE updates.
+3. Wait for some time (~ 2 mins) until the match becomes LIVE. Unfortutately snapshots were made when the match just started, so scores are 0. So in the future we want to update scores, so that the effect of updating is more visible.
 

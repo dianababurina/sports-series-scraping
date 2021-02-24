@@ -15,6 +15,7 @@
     "config": "^3.3.3",
     "koa": "^2.13.1",
     "koa-router": "^10.0.0",
+    "lodash.get": "^4.4.2",
     "n-readlines": "^1.0.1",
     "node-cron": "^2.0.3"
   },

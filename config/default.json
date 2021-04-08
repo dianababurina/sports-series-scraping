@@ -1,5 +1,5 @@
 {
   "fetcherURL": "https://au-metro-fetcher.dev.aumetros.djservices.io",
-  "sport": "test",
-  "matchId": "TEST2020-210903"
+  "sport": "nrl",
+  "matchId": "NRL20210501"
 }
